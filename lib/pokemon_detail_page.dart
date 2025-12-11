@@ -16,7 +16,12 @@ class PokemonDetailPage extends StatelessWidget {
           padding: const EdgeInsets.symmetric(horizontal: 18),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [const SizedBox(height: 20)],
+            children: [
+              const SizedBox(height: 10),
+
+              pokemonImage(),
+              const SizedBox(height: 20),
+            ],
           ),
         ),
       ),
