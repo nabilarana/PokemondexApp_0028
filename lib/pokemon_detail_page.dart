@@ -9,8 +9,31 @@ class PokemonDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(pokemon.name)),
-      body: Center(child: Text("Detail Page for ${pokemon.name}")),
+      backgroundColor: Colors.white,
+      appBar: buildHeader(context),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 18)
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              const SizedBox(height:20),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  AppBar buildHeader(BuildContext context) {
+    return AppBar(
+      backgroundColor: Colors.white,
+      elevation: 0,
+      centerTitle: true,
+      leading:  IconButton(
+        onPressed: () => Navigator.pop(context), 
+        icon: const Icon(Icons.arrow_back, color: Colors.black),
+      ),
     );
   }
 }
