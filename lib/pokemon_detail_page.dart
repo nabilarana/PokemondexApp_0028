@@ -13,12 +13,10 @@ class PokemonDetailPage extends StatelessWidget {
       appBar: buildHeader(context),
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 18)
+          padding: const EdgeInsets.symmetric(horizontal: 18),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              const SizedBox(height:20),
-            ],
+            children: [const SizedBox(height: 20)],
           ),
         ),
       ),
@@ -30,10 +28,38 @@ class PokemonDetailPage extends StatelessWidget {
       backgroundColor: Colors.white,
       elevation: 0,
       centerTitle: true,
-      leading:  IconButton(
-        onPressed: () => Navigator.pop(context), 
+      leading: IconButton(
+        onPressed: () => Navigator.pop(context),
         icon: const Icon(Icons.arrow_back, color: Colors.black),
       ),
+      title: Column(
+        children: [
+          Text(
+            pokemon.name,
+            style: const TextStyle(
+              fontSize: 22,
+              fontWeight: FontWeight.bold,
+              color: Colors.black87,
+            ),
+          ),
+          Text(
+            pokemon.type,
+            style: const TextStyle(fontSize: 13, color: Colors.black54),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget pokemonImage() {
+    return Container(
+      height: 240,
+      width: double.infinity,
+      decoration: BoxDecoration(
+        color: const Color(0xffc7dcd6),
+        borderRadius: BorderRadius.circular(20),
+      ),
+      child: Center(child: Image.network(pokemon.url, fit: BoxFit.fill)),
     );
   }
 }
