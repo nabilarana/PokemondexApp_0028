@@ -21,6 +21,9 @@ class PokemonDetailPage extends StatelessWidget {
 
               pokemonImage(),
               const SizedBox(height: 20),
+
+              tabMenu(),
+              const SizedBox(height: 20),
             ],
           ),
         ),
@@ -42,7 +45,7 @@ class PokemonDetailPage extends StatelessWidget {
           Text(
             pokemon.name,
             style: const TextStyle(
-              fontSize: 22,
+              fontSize: 25,
               fontWeight: FontWeight.bold,
               color: Colors.black87,
             ),
@@ -58,13 +61,51 @@ class PokemonDetailPage extends StatelessWidget {
 
   Widget pokemonImage() {
     return Container(
-      height: 240,
+      height: 300,
       width: double.infinity,
       decoration: BoxDecoration(
-        color: const Color(0xffc7dcd6),
+        color: pokemon.type == "Grass"
+            ? Colors.green[100]
+            : pokemon.type == "Fire"
+            ? Colors.red[100]
+            : pokemon.type == "Water"
+            ? Colors.blue[100]
+            : Colors.grey[100],
         borderRadius: BorderRadius.circular(20),
       ),
-      child: Center(child: Image.network(pokemon.url, fit: BoxFit.fill)),
+      child: Center(
+        child: Image.network(pokemon.url, fit: BoxFit.contain, height: 250),
+      ),
+    );
+  }
+
+  Widget tabMenu() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      children: [
+        Column(
+          children: const [
+            Text(
+              'Forms',
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: 5),
+            CircleAvatar(radius: 3, backgroundColor: Colors.black),
+          ],
+        ),
+        const Text(
+          'Detail',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        const Text(
+          'Types',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        const Text(
+          'Stats',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+      ],
     );
   }
 }
