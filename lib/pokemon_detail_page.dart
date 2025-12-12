@@ -40,7 +40,7 @@ class PokemonDetailPage extends StatelessWidget {
         onPressed: () {
           Navigator.pop(context);
         },
-        icon: const Icon(Icons.arrow_back, color: Colors.black),
+        icon: const Icon(Icons.arrow_back, size: 30, color: Colors.black),
       ),
       title: Column(
         children: [
