@@ -11,9 +11,9 @@ class PokemonDetailPage extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: buildHeader(context),
-      body: SingleChildScrollView(
+      body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 18),
+          padding: const EdgeInsets.all(24.0),
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -37,7 +37,9 @@ class PokemonDetailPage extends StatelessWidget {
       elevation: 0,
       centerTitle: true,
       leading: IconButton(
-        onPressed: () => Navigator.pop(context),
+        onPressed: () {
+          Navigator.pop(context);
+        },
         icon: const Icon(Icons.arrow_back, color: Colors.black),
       ),
       title: Column(
@@ -103,6 +105,10 @@ class PokemonDetailPage extends StatelessWidget {
         ),
         const Text(
           'Stats',
+          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        ),
+        const Text(
+          'Weak',
           style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
         ),
       ],
