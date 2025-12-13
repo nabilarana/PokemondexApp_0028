@@ -55,7 +55,7 @@ class HomePage extends StatelessWidget {
           child: TextFormField(
             controller: searchName,
             decoration: InputDecoration(
-              hintText: "Search a Pokemon",
+              hintText: "Search a Pokemon or type",
               border: OutlineInputBorder(),
               prefixIcon: Icon(Icons.search),
             ),
