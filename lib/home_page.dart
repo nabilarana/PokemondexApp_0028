@@ -36,11 +36,11 @@ class HomePage extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text(
-          'Pokedex',
+          'Pokèdex',
           style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold),
         ),
         Text(
-          'Search for a pokemon by name or using its National Pokedex number.',
+          'Search for a Pokèmon by name or using its National Pokedex number.',
           style: TextStyle(fontSize: 20),
         ),
       ],
