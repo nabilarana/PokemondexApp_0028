@@ -52,6 +52,7 @@ class PokemonDetailPage extends StatelessWidget {
               color: Colors.black87,
             ),
           ),
+          const SizedBox(height: 4),
           Text(
             pokemon.type,
             style: const TextStyle(fontSize: 13, color: Colors.black54),
@@ -63,7 +64,7 @@ class PokemonDetailPage extends StatelessWidget {
 
   Widget pokemonImage() {
     return Container(
-      height: 300,
+      height: 320,
       width: double.infinity,
       decoration: BoxDecoration(
         color: pokemon.type == "Grass"
@@ -73,44 +74,48 @@ class PokemonDetailPage extends StatelessWidget {
             : pokemon.type == "Water"
             ? Colors.blue[100]
             : Colors.grey[100],
-        borderRadius: BorderRadius.circular(20),
+        borderRadius: BorderRadius.circular(25),
       ),
       child: Center(
-        child: Image.network(pokemon.url, fit: BoxFit.contain, height: 250),
+        child: Image.network(pokemon.url, fit: BoxFit.contain, height: 200),
       ),
     );
   }
 
   Widget tabMenu() {
     return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceAround,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        Column(
-          children: const [
-            Text(
-              'Forms',
-              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+        tabItem(title: "Forms", isActive: true),
+        tabItem(title: "Detail"),
+        tabItem(title: "Types"),
+        tabItem(title: "Stats"),
+        tabItem(title: "Weak"),
+      ],
+    );
+  }
+
+  Widget tabItem({required String title, bool isActive = false}) {
+    return Column(
+      children: [
+        Text(
+          title,
+          style: TextStyle(
+            fontSize: 18,
+            fontWeight: FontWeight.bold,
+            color: isActive ? Colors.black : Colors.black38,
+          ),
+        ),
+        const SizedBox(height: 6),
+        if (isActive)
+          Container(
+            height: 6,
+            width: 6,
+            decoration: const BoxDecoration(
+              color: Colors.black,
+              shape: BoxShape.circle,
             ),
-            SizedBox(height: 5),
-            CircleAvatar(radius: 3, backgroundColor: Colors.black),
-          ],
-        ),
-        const Text(
-          'Detail',
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-        ),
-        const Text(
-          'Types',
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-        ),
-        const Text(
-          'Stats',
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-        ),
-        const Text(
-          'Weak',
-          style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-        ),
+          ),
       ],
     );
   }
