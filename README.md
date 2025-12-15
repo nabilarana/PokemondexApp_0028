@@ -2,5 +2,6 @@
 
 Nabila Rana Pradipta (3012310028) IF-B
 
-![alt text](https://ibb.co.com/LzcygGxV?raw=true)
-![alt text](https://ibb.co.com/BH99mv1f?raw=true)
+![Image](https://github.com/user-attachments/assets/b3d08448-ea68-4c1f-b97e-c2bbb41651de)
+
+![Image](https://github.com/user-attachments/assets/ba7866d4-d630-447c-a1be-f0aff5633db3)
